@@ -6,13 +6,12 @@
 
 Trit::Trit() : _value(trit::Unknown) {}
 
-Trit::Trit(const trit value) : _value (value) {}
+Trit::Trit(const trit value) : _value(value) {}
 
 Trit &Trit::operator&=(const Trit &other) {
     if (_value == trit::False || other._value == trit::False)
         _value = trit::False;
-    else
-    if (_value == trit::Unknown || other._value == trit::Unknown)
+    else if (_value == trit::Unknown || other._value == trit::Unknown)
         _value = trit::Unknown;
     return *this;
 }
@@ -20,8 +19,7 @@ Trit &Trit::operator&=(const Trit &other) {
 Trit &Trit::operator|=(const Trit &other) {
     if (_value == trit::True || other._value == trit::True)
         _value = trit::True;
-    else
-    if (_value == trit::Unknown || other._value == trit::Unknown)
+    else if (_value == trit::Unknown || other._value == trit::Unknown)
         _value = trit::Unknown;
     return *this;
 }
@@ -29,8 +27,7 @@ Trit &Trit::operator|=(const Trit &other) {
 Trit &Trit::operator^=(const Trit &other) {
     if (_value == trit::Unknown || other._value == trit::Unknown)
         _value = trit::Unknown;
-    else
-    if (_value != other._value)
+    else if (_value != other._value)
         _value = trit::True;
     else
         _value = trit::False;
@@ -39,10 +36,10 @@ Trit &Trit::operator^=(const Trit &other) {
 
 Trit Trit::operator!() const {
     if (_value == trit::False)
-        return Trit (trit::True);
+        return Trit(trit::True);
     if (_value == trit::True)
-        return Trit (trit::False);
-    return Trit (trit::Unknown);
+        return Trit(trit::False);
+    return Trit(trit::Unknown);
 }
 
 Trit Trit::operator&(const Trit &other) const {
@@ -81,9 +78,9 @@ bool Trit::operator!=(const bool &other) const {
     return _value != Trit(other)._value;
 }
 
-Trit::Trit(const Trit &obj) : _value(obj._value ){}
+Trit::Trit(const Trit &obj) : _value(obj._value) {}
 
-Trit &Trit::operator=(const Trit &other){
+Trit &Trit::operator=(const Trit &other) {
     _value = other._value;
     return (*this);
 }
@@ -102,7 +99,7 @@ Trit::operator trit() {
 
 Trit::Trit(const bool value) {
     if (value) _value = trit::True;
-    else       _value = trit::False;
+    else _value = trit::False;
 }
 
 Trit::Trit(const int value) {
@@ -112,7 +109,7 @@ Trit::Trit(const int value) {
 }
 
 Trit::operator int() {
-    switch (_value){
+    switch (_value) {
         case trit::False:
             return -1;
         case trit::Unknown:
